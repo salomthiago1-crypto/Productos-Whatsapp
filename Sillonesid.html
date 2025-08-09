@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sillones.id - Catálogo de Productos</title>
+<style>
+  /* Fuentes y colores */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background: #f7f7f7;
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  h2 {
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Buscador */
+  #buscador {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  #buscador:focus {
+    outline: none;
+    border-color: #ffcc33;
+    box-shadow: 0 0 8px #ffcc33aa;
+  }
+
+  /* Grid de productos */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+  }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgb(0 0 0 / 0.15);
+  }
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .card h4 {
+    margin: 15px;
+    font-weight: 600;
+    color: #222;
+  }
+  .btn-consultar {
+    margin: 0 15px 15px 15px;
+    padding: 12px;
+    text-align: center;
+    background: #ffcc33;
+    color: #222;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .btn-consultar:hover {
+    background: #e6b800;
+  }
+  .selected {
+    outline: 3px solid #ffcc33;
+  }
+
+  /* Formulario */
+  form {
+    max-width: 600px;
+    background: #fff;
+    padding: 25px 30px;
+    margin: 0 auto 50px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+  }
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+  }
+  form input[type="text"], form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    resize: vertical;
+    box-sizing: border-box;
+  }
+  form textarea {
+    min-height: 100px;
+  }
+  form input[type="text"]:focus, form textarea:focus {
+    border-color: #ffcc33;
+    outline: none;
+    box-shadow: 0 0 8px #ffcc33aa;
+  }
+  form button.submit {
+    background-color: #ffcc33;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #222;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  form button.submit:hover {
+    background-color: #e6b800;
+  }
+  .note {
+    font-size: 13px;
+    color: #777;
+    margin-top: -12px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h1>sillones.id</h1>
+<h2>Catálogo de Productos</h2>
+
+<input type="text" id="buscador" placeholder="Buscar producto..." autocomplete="off" />
+
+<div class="grid" id="productos">
+  <div class="card" data-name="Sillón Laura Individual">
+    <img src="https://drive.google.com/uc?export=view&id=1Kb3bVxzIiRvAUr3nXV8OB_69S7urO_mm" alt="Sillón Laura Individual" />
+    <h4>Sillón Laura Individual</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Individual Mount con Bastidor">
+    <img src="https://drive.google.com/uc?export=view&id=1IleVjLa34B2zi1gVA4hbR0KnTAmdmXWp" alt="Individual Mount con Bastidor" />
+    <h4>Individual Mount con Bastidor</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Mont con Base Perimetral Paraiso">
+    <img src="https://drive.google.com/uc?export=view&id=199cVH_f1q9BOINAuHq3NMRnB8QnIJAJA" alt="Sofa Mont con Base Perimetral Paraiso" />
+    <h4>Sofa Mont con Base Perimetral Paraiso</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Modul">
+    <img src="https://drive.google.com/uc?export=view&id=12lEqfzBaiAvRimc7MComh1rf722-q1UW" alt="Sofa Modul" />
+    <h4>Sofa Modul</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Esquinero Mount">
+    <img src="https://drive.google.com/uc?export=view&id=18_fQvpZod81sdId-tk_Pm8Ex6QSkPpq6" alt="Esquinero Mount" />
+    <h4>Esquinero Mount</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Clasico Tusor">
+    <img src="https://drive.google.com/uc?export=view&id=1HfxzQnz5qyemP6OeV6t_fR3SDZThyHFP" alt="Sofa Clasico Tusor" />
+    <h4>Sofa Clasico Tusor</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Juana">
+    <img src="https://via.placeholder.com/400x300?text=Sofa+Juana" alt="Sofa Juana" />
+    <h4>Sofa Juana</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Teddy">
+    <img src="https://drive.google.com/uc?export=view&id=1PFzzGSQP3ZvaRtxCll3jcOFXYdhLeRpT" alt="Sofa Teddy" />
+    <h4>Sofa Teddy</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Patagonia">
+    <img src="https://drive.google.com/uc?export=view&id=15BROifKOHSoLRGjNcaeizlU11SRXUi87" alt="Sofa Patagonia" />
+    <h4>Sofa Patagonia</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Netflix">
+    <img src="https://drive.google.com/uc?export=view&id=1klPM5hCUNvOPbC18h0pgObUTD1hmd3r_" alt="Sofa Netflix" />
+    <h4>Sofa Netflix</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Nordico">
+    <img src="https://drive.google.com/uc?export=view&id=12lEqfzBaiAvRimc7MComh1rf722-q1UW" alt="Sofa Nordico" />
+    <h4>Sofa Nordico</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Respaldo Cama">
+    <img src="https://drive.google.com/uc?export=view&id=1pxMKhregVJM8pLq5zqw7nn60LzxyPIme" alt="Respaldo Cama" />
+    <h4>Respaldo Cama</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Monaco">
+    <img src="https://drive.google.com/uc?export=view&id=1mO8Cv4q51KLeLugLX3N4kwIG5FMbJtM-" alt="Sofa Monaco" />
+    <h4>Sofa Monaco</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Cubo">
+    <img src="https://drive.google.com/uc?export=view&id=14292Hw0CNhXrgxJJeheHlejjcikwrKEN" alt="Sofa Cubo" />
+    <h4>Sofa Cubo</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sillon Caldera">
+    <img src="https://drive.google.com/uc?export=view&id=12ZJFLaHJonQhsXJOhvBuQdDwmpK6Z8rz" alt="Sillon Caldera" />
+    <h4>Sillon Caldera</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+
+  <div class="card" data-name="Sofa Helena">
+    <img src="https://drive.google.com/uc?export=view&id=1tj-4FpHoYijfO6iP1ZYbQUYdw1fNbr5s" alt="Sofa Helena" />
+    <h4>Sofa Helena</h4>
+    <a href="#" class="btn-consultar">Consultar precio</a>
+  </div>
+</div>
+
+<form id="contactForm" onsubmit="return enviarWhatsApp()">
+  <label for="producto">Producto seleccionado</label>
+  <input type="text" id="producto" name="producto" placeholder="Selecciona un producto arriba" readonly required />
+
+  <label for="nombre">Tu nombre</label>
+  <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required />
+
+  <label for="telefonoUser">Tu teléfono (opcional)</label>
+  <input type="text" id="telefonoUser" name="telefonoUser" placeholder="Ej: +541112345678" />
+
+  <label for="mensaje">Mensaje adicional (opcional)</label>
+  <textarea id="mensaje" name="mensaje" placeholder="Escribe un mensaje adicional"></textarea>
+
+  <button type="submit" class="submit">Enviar por WhatsApp</button>
+  <p class="note">* Se abrirá WhatsApp con tu mensaje para consultar precio.</p>
+</form>
+
+<script>
+  // Buscar productos
+  const buscador = document.getElementById('buscador');
+  const productos = document.querySelectorAll('.card');
+  buscador.addEventListener('input', () => {
+    const query = buscador.value.toLowerCase();
+    productos.forEach(card => {
+      const nombre = card.dataset.name.toLowerCase();
+      card.style.display = nombre.includes(query) ? 'flex' : 'none';
+    });
+  });
+
+  // Seleccionar producto
+  productos.forEach(card => {
+    const btn = card.querySelector('.btn-consultar');
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      productos.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      document.getElementById('producto').value = card.dataset.name;
+      window.scrollTo({
+        top: document.getElementById('contactForm').offsetTop - 20,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Enviar mensaje a WhatsApp
+  function enviarWhatsApp() {
+    const producto = document.getElementById('producto').value.trim();
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefonoUser = document.getElementById('telefonoUser').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!producto || !nombre) {
+      alert('Por favor, selecciona un producto y escribe tu nombre.');
+      return false;
+    }
+
+    // Número fijo de la empresa (cámbialo por tu WhatsApp)
+    const numeroEmpresa = '5491123456789'; // ejemplo de número argentino sin espacios ni símbolos
+
+    let texto = `Hola, soy ${nombre}. Quisiera consultar el precio del producto: ${producto}.`;
+    if (telefonoUser) {
+      texto += ` Mi teléfono es: ${telefonoUser}.`;
+    }
+    if (mensaje) {
+      texto += ` ${mensaje}`;
+    }
+
+    const urlWhatsapp = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(texto)}`;
+    window.open(urlWhatsapp, '_blank');
+    return false;
+  }
+</script>
+
+</body>
+</html>
